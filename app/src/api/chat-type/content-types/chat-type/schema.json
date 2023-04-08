@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "chat_types",
+  "info": {
+    "singularName": "chat-type",
+    "pluralName": "chat-types",
+    "displayName": "Chat Type"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "type": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

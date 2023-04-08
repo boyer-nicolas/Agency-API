@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "service_types",
+  "info": {
+    "singularName": "service-type",
+    "pluralName": "service-types",
+    "displayName": "Service Type",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "services": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service.service",
+      "mappedBy": "service_type"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "shortDescription": {
+      "type": "string",
+      "required": true
+    },
+    "hashtags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::hashtag.hashtag"
+    }
+  }
+}

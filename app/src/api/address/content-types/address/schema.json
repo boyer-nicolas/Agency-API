@@ -1,0 +1,62 @@
+{
+  "kind": "collectionType",
+  "collectionName": "addresses",
+  "info": {
+    "singularName": "address",
+    "pluralName": "addresses",
+    "displayName": "Address",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "addressLine1": {
+      "type": "string",
+      "required": true
+    },
+    "addressLine2": {
+      "type": "string",
+      "required": false
+    },
+    "firstName": {
+      "type": "string",
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "required": true
+    },
+    "zip": {
+      "type": "biginteger",
+      "required": true
+    },
+    "credit_cards": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::credit-card.credit-card",
+      "mappedBy": "address"
+    },
+    "state": {
+      "type": "string",
+      "required": true
+    },
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "users": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "addresses"
+    },
+    "company": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::client.client",
+      "mappedBy": "address"
+    }
+  }
+}

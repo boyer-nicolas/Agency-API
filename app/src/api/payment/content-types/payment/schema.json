@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "payments",
+  "info": {
+    "singularName": "payment",
+    "pluralName": "payments",
+    "displayName": "Payment",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "amount": {
+      "required": true,
+      "type": "biginteger"
+    },
+    "company": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::client.client",
+      "inversedBy": "payments"
+    },
+    "date": {
+      "required": true,
+      "type": "datetime"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "Successful",
+        "Pending",
+        "Failed"
+      ],
+      "required": true
+    },
+    "credit_note": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::credit-note.credit-note",
+      "inversedBy": "payment"
+    },
+    "invoice": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::invoice.invoice",
+      "inversedBy": "payment"
+    }
+  }
+}

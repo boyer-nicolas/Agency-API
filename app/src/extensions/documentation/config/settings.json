@@ -1,0 +1,47 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "NIWEE AGENCY API",
+        "description": "",
+        "termsOfService": "https://agence.niwee.fr/politique-de-confidentialite",
+        "contact": {
+            "name": "NiWee Productions",
+            "email": "hello@niwee.fr",
+            "url": "agence.niwee.fr"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "x-strapi-config": {
+        "path": "/documentation",
+        "showGeneratedFiles": true,
+        "generateDefaultResponse": true,
+        "plugins": [
+            "email",
+            "upload",
+            "users-permissions",
+            "strapi-plugin-menus"
+        ]
+    },
+    "servers": [
+        {
+            "url": "https://cms.niwee.fr/api",
+            "description": "Production server"
+        }
+    ],
+    "externalDocs": {
+        "description": "Find out more",
+        "url": "https://strapi.io/documentation/"
+    },
+    "security": [
+        {
+            "bearerAuth": []
+        }
+    ],
+    "paths": {},
+    "tags": [],
+    "components": {}
+}

@@ -1,0 +1,81 @@
+{
+  "kind": "collectionType",
+  "collectionName": "services",
+  "info": {
+    "singularName": "service",
+    "pluralName": "services",
+    "displayName": "Service",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "recurrent": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "price": {
+      "type": "decimal",
+      "required": false
+    },
+    "priceFrom": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "isExternal": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "onSale": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "includesVat": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "currency": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::currency.currency"
+    },
+    "service_type": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::service-type.service-type",
+      "inversedBy": "services"
+    },
+    "shortDescription": {
+      "type": "string",
+      "required": true
+    },
+    "onQuote": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}

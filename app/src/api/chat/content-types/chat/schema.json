@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "chats",
+  "info": {
+    "singularName": "chat",
+    "pluralName": "chats",
+    "displayName": "Chat",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "message": {
+      "type": "string"
+    },
+    "sentOn": {
+      "type": "datetime",
+      "required": true
+    },
+    "viewedOn": {
+      "type": "datetime",
+      "required": false
+    },
+    "viewed": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "chats"
+    },
+    "chat_type": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::chat-type.chat-type"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "credit_cards",
+  "info": {
+    "singularName": "credit-card",
+    "pluralName": "credit-cards",
+    "displayName": "Credit Card"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "number": {
+      "type": "biginteger"
+    },
+    "isPrimary": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "expirationDate": {
+      "type": "date",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "cvv": {
+      "type": "biginteger",
+      "required": true
+    },
+    "address": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::address.address",
+      "inversedBy": "credit_cards"
+    }
+  }
+}

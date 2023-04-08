@@ -1,0 +1,120 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projects",
+  "info": {
+    "singularName": "project",
+    "pluralName": "projects",
+    "displayName": "Project",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "company": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::client.client",
+      "inversedBy": "projects"
+    },
+    "portfolio": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::portfolio.portfolio",
+      "mappedBy": "project"
+    },
+    "project_type": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::project-type.project-type"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "En attente d'accompte",
+        "Non commencé",
+        "En développement",
+        "En pré-production",
+        "En production"
+      ],
+      "required": true
+    },
+    "deadline": {
+      "type": "datetime",
+      "required": true
+    },
+    "budget": {
+      "type": "biginteger",
+      "required": true
+    },
+    "referees": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "project"
+    },
+    "contents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::content.content",
+      "mappedBy": "project"
+    },
+    "quote": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::quote.quote",
+      "inversedBy": "project"
+    },
+    "credit_note": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::credit-note.credit-note",
+      "inversedBy": "project"
+    },
+    "invoice": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::invoice.invoice",
+      "inversedBy": "project"
+    },
+    "readme": {
+      "type": "richtext",
+      "required": true
+    },
+    "credited": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "paid": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "overdue": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "tasks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::task.task",
+      "mappedBy": "project"
+    },
+    "activities": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::activity.activity",
+      "mappedBy": "project"
+    },
+    "url": {
+      "type": "string",
+      "regex": "https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)"
+    }
+  }
+}

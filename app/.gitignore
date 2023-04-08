@@ -1,0 +1,5 @@
+node_modules
+.cache
+full_documentation.json
+app/src/api/*
+app/src/components/*

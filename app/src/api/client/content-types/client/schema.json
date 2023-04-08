@@ -1,0 +1,150 @@
+{
+  "kind": "collectionType",
+  "collectionName": "clients",
+  "info": {
+    "singularName": "client",
+    "pluralName": "clients",
+    "displayName": "Companies",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {}
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {}
+    },
+    "users": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "companies"
+    },
+    "commercialName": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "type": "biginteger"
+    },
+    "phonePrefix": {
+      "type": "enumeration",
+      "enum": [
+        "France",
+        "Suisse ",
+        "Belgique"
+      ],
+      "required": true,
+      "default": "France"
+    },
+    "siren": {
+      "type": "biginteger",
+      "required": true
+    },
+    "siret": {
+      "type": "biginteger",
+      "required": true
+    },
+    "vatNumber": {
+      "type": "string",
+      "required": true
+    },
+    "rcsNumber": {
+      "type": "string",
+      "required": false
+    },
+    "nafCode": {
+      "type": "string",
+      "required": true
+    },
+    "country": {
+      "type": "enumeration",
+      "enum": [
+        "France",
+        "Suisse",
+        "Belgique"
+      ],
+      "required": true,
+      "default": "France"
+    },
+    "creationDate": {
+      "type": "date",
+      "required": true
+    },
+    "legalStatus": {
+      "type": "enumeration",
+      "enum": [
+        "SAS",
+        "SARL",
+        "SASU",
+        "SA",
+        "EURL",
+        "EIRL",
+        "Association Déclarée"
+      ],
+      "required": true
+    },
+    "projects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::project.project",
+      "mappedBy": "company"
+    },
+    "credit_notes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::credit-note.credit-note",
+      "mappedBy": "company"
+    },
+    "invoices": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::invoice.invoice",
+      "mappedBy": "company"
+    },
+    "quotes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::quote.quote",
+      "mappedBy": "company"
+    },
+    "address": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::address.address",
+      "inversedBy": "company"
+    },
+    "payments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::payment.payment",
+      "mappedBy": "company"
+    },
+    "report": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::report.report",
+      "mappedBy": "company"
+    },
+    "shortDescription": {
+      "type": "string",
+      "required": false
+    },
+    "websiteUrl": {
+      "type": "string",
+      "regex": "https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)"
+    }
+  }
+}

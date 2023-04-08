@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "invoices",
+  "info": {
+    "singularName": "invoice",
+    "pluralName": "invoices",
+    "displayName": "Invoice",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "paid": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "paidOn": {
+      "type": "datetime",
+      "required": true
+    },
+    "quote": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::quote.quote",
+      "inversedBy": "invoice"
+    },
+    "company": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::client.client",
+      "inversedBy": "invoices"
+    },
+    "project": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::project.project",
+      "mappedBy": "invoice"
+    },
+    "payment": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::payment.payment",
+      "mappedBy": "invoice"
+    },
+    "asset": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::asset.asset"
+    }
+  }
+}

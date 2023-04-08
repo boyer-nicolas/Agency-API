@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "hashtags",
+  "info": {
+    "singularName": "hashtag",
+    "pluralName": "hashtags",
+    "displayName": "Hashtag"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

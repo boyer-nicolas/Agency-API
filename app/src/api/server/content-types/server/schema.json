@@ -1,0 +1,132 @@
+{
+  "kind": "collectionType",
+  "collectionName": "servers",
+  "info": {
+    "singularName": "server",
+    "pluralName": "servers",
+    "displayName": "Server",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "prettyName": {
+      "type": "string",
+      "required": true
+    },
+    "ip": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "country": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::country.country"
+    },
+    "configured": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "protectedByVpn": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "fullCapacity": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "ram": {
+      "type": "integer",
+      "required": true
+    },
+    "cores": {
+      "type": "integer",
+      "required": true
+    },
+    "storage": {
+      "type": "biginteger",
+      "required": true
+    },
+    "bandwidth": {
+      "type": "biginteger",
+      "required": true
+    },
+    "sshPort": {
+      "type": "biginteger",
+      "required": true
+    },
+    "sshUser": {
+      "type": "string",
+      "required": true
+    },
+    "mainDns": {
+      "type": "string",
+      "required": true
+    },
+    "transferLimit": {
+      "type": "biginteger",
+      "required": true
+    },
+    "threads": {
+      "type": "integer",
+      "required": true
+    },
+    "raid": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "replicated": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "ramFrequency": {
+      "type": "biginteger",
+      "required": true
+    },
+    "diskType": {
+      "type": "enumeration",
+      "enum": [
+        "SSD SATA",
+        "SSD NVME",
+        "HDD"
+      ],
+      "required": true
+    },
+    "costPerMonth": {
+      "type": "decimal",
+      "required": true
+    },
+    "operating_system": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::operating-system.operating-system"
+    },
+    "useCase": {
+      "type": "enumeration",
+      "enum": [
+        "Web Applications",
+        "Backup Storage",
+        "Database"
+      ],
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "VPS",
+        "VDS",
+        "Bare Metal",
+        "Shared"
+      ],
+      "required": true
+    }
+  }
+}

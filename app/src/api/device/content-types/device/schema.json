@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "devices",
+  "info": {
+    "singularName": "device",
+    "pluralName": "devices",
+    "displayName": "Device",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ipAddress": {
+      "type": "string",
+      "required": true
+    },
+    "lastUsed": {
+      "required": true,
+      "type": "datetime"
+    },
+    "location": {
+      "type": "string",
+      "required": true
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "devices"
+    },
+    "firstUse": {
+      "required": true,
+      "type": "datetime"
+    }
+  }
+}
